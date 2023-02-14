@@ -1,0 +1,33 @@
+syntax = "proto3";
+package example.demo.v1;
+
+import "example/demo/v1/type/employee.proto";
+import "google/type/date.proto";
+import "google/api/annotations.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.demo.v1";
+
+service EmployeeService {
+  rpc registerEmployee(RegisterEmployeeRequest) returns (EmployeeProto) {
+    option (google.api.http) = {
+      post: "/v1/employees:registerEmployee"
+      body: "*"
+    };
+  };
+  rpc getEmployee(GetEmployeeRequest) returns (EmployeeProto) {
+    option (google.api.http) = {
+      get: "/v1/employees/{emp_id}"
+    };
+  };
+}
+
+message RegisterEmployeeRequest {
+  string name = 1;
+  google.type.Date join_date = 2;
+  example.demo.v1.Role role = 3;
+}
+
+message GetEmployeeRequest{
+  string emp_id = 1;
+}

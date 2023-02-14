@@ -1,0 +1,22 @@
+syntax = "proto3";
+package example.demo.v1;
+
+import "google/type/date.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.demo.v1.type";
+
+message EmployeeProto {
+  string emp_id = 1;
+  string name = 2;
+  google.type.Date join_date = 3;
+  Role role = 4;
+}
+
+enum Role {
+  //default role
+  USER = 0;
+  HR = 1;
+  MANAGER = 2;
+  ADMIN = 3;
+}

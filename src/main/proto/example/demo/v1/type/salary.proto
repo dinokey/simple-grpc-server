@@ -1,0 +1,14 @@
+syntax = "proto3";
+package example.demo.v1;
+
+import "google/type/date.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.demo.v1.type";
+
+message SalaryProto {
+  string emp_id = 1;
+  string name = 2;
+  int32 salary = 3;
+  int32 bonus = 4;
+}
