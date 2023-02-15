@@ -7,6 +7,7 @@ import "google/api/annotations.proto";
 
 option java_multiple_files = true;
 option java_package = "com.example.demo.v1";
+option go_package = "github.com/example/service/employee";
 
 service EmployeeService {
   rpc registerEmployee(RegisterEmployeeRequest) returns (EmployeeProto) {
